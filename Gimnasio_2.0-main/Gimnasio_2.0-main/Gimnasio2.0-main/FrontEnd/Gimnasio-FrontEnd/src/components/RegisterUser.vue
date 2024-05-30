@@ -98,9 +98,10 @@
 
                         <br>
                         <br>   
+                        <a href="/Menu">
                         <button type="submit" 
                             class="inline-flex w-full items-center justify-center rounded-lg bg-black p-2 py-3 text-sm font-medium text-white outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400">Registrar</button>
-                        
+                        </a>
                         
                         </form>
                 </div>
