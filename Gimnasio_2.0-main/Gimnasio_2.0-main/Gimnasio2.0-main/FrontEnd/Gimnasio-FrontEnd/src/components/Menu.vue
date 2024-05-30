@@ -116,7 +116,7 @@
   
   <script>
   import menuData from './support/menu-data';
-  import kebabCase from 'lodash/kebabCase';
+ 
   
   export default {
     name: 'Menu',
