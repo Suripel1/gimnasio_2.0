@@ -1,6 +1,6 @@
 <template>
-        <div id="login-popup" tabindex="-1"
-    class="bg-black/50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[999] h-full items-center justify-center popup flex">
+    <div id="login-popup" tabindex="-1" class="bg-black/50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[999] h-full items-center justify-center popup flex">
+    <div class="grid gap-12 mb-12 sm:grid-cols-3">
     <div class="relative p-4 w-full max-w-md h-full md:h-auto">
         <div class="relative bg-white rounded-lg shadow popup-body">
             <button type="button"
@@ -31,11 +31,9 @@
                        
                         <div class="h-px w-full bg-slate-200"></div>
                     </div>
+                    
                     <form class="w-full">
-                        
-                        <lavel for="" class= "font-medium">Datos Personales</lavel>
-                        <br>
-                        <br>
+                    <lavel for="" class= "font-medium">Datos Personales</lavel>
                         <input name="email" type="email" autocomplete="email" required=""
                         class="block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
                         placeholder="Nombre Completo" value="">
@@ -47,10 +45,10 @@
                         <input name="password" type="email" autocomplete="current-password" required=""
                         class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
                         placeholder="Segundo Apellido" value="">
-                        
+
                         <input name="password" type="email" autocomplete="current-password" required=""
                         class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                        placeholder="Titulo de Cortesia" value="">
+                        placeholder="Titulo De Cortesia" value="">
 
                         <select id="countries" class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1">
                         <option selected>Selecciona Genero</option>
@@ -72,16 +70,13 @@
                         <option value="">0-</option>
                         </select>
 
-                        <br>
+
                         <lavel for="" class= "font-medium">Fotografia</lavel>
                         <br>
                         <input name="password" type="file" autocomplete="current-password" required=""
                         class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
                         placeholder="Fotografia" value="">
-                        <br>  
-                        
-                        <lavel for="" class= "font-medium">Datos de Acceso</lavel>
-                        <br>
+                        <lavel for="" class= "font-medium">Datos De Acceso</lavel>
                         <input name="password" type="email" autocomplete="current-password" required=""
                         class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
                         placeholder="Correo" value="">
@@ -90,24 +85,23 @@
                         class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
                         placeholder="Contraseña" value="">
 
-                        
                         <input name="password" type="password" autocomplete="current-password" required=""
                         class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
                         placeholder="Confirmar Contraseña" value="">
-
-
                         <br>
                         <br>   
-                        <a href="/Menu">
-                        <button type="submit" 
-                            class="inline-flex w-full items-center justify-center rounded-lg bg-black p-2 py-3 text-sm font-medium text-white outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400">Registrar</button>
-                        </a>
-                        
+
                         </form>
+                       <a href="/dashboard">
+                        <button type="submit"
+                                class="inline-flex w-full items-center justify-center rounded-lg bg-black p-2 py-3 text-sm font-medium text-white outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400">
+                            Registrar
+                        </button>
+                        </a>
                 </div>
                 <div class="mt-6 text-center text-sm text-slate-600">
-
                 </div>
+            </div>
             </div>
         </div>
     </div>
