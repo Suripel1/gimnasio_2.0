@@ -19,7 +19,10 @@ const router = createRouter({
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: DashboardView
+      component: DashboardView,
+      children: [
+        {path:'/personas', name: 'persona', component:RegisterUserView}
+      ]
     }
   ]
 })
