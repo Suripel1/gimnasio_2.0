@@ -1,109 +1,120 @@
 <template>
-    <div id="login-popup" tabindex="-1" class="bg-black/50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-[999] h-full items-center justify-center popup flex">
-    <div class="grid gap-12 mb-12 sm:grid-cols-3">
-    <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-        <div class="relative bg-white rounded-lg shadow popup-body">
-            <button type="button"
-                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close">
-                <svg aria-hidden="true" class="w-5 h-5" fill="#c6c7c7" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        cliprule="evenodd"></path>
-                </svg>
-                <span class="sr-only">Cerrar</span>
-            </button>
-            <div class="p-5">
-                <h3 class="text-2xl mb-0.5 font-medium"> </h3>
-                <p class="mb-4 text-sm font-normal text-gray-800"> </p>
-                <div class="mb-7 text-center">
-                    <p class="mb-3 text-2xl font-semibold leading-5 text-slate-900">
-                        Registrar Usuario
-                    </p>
-                    <p class="mt-2 text-sm leading-4 text-slate-600">
-                        Completa los campos
-                    </p>
-                </div>
-                <div>
-                    <div class="flex w-full flex-col gap-2">
+    <div class="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
+        <div class="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+            <form action="#">
+                <br><br>
+                <h1 class="text-2xl xl:text-4xl font-extrabold">
+                    Registrar usuarios
+                </h1>
+                <br><br>
+                <hr></hr>
+                    <h1 class="text-2xl xl:text-2xl font-extrabold">Datos personales</h1>
+                <br>
+                <div class="grid gap-12 mb-12 sm:grid-cols-3">
+                    <div>
+                        <label for="Nombre"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
+                        <input type="text" name="nombre" id="nombre"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="nombre" required="">
                     </div>
-                    <div class="flex w-full items-center gap-2 py-6 text-sm text-slate-600">
-                       
-                        <div class="h-px w-full bg-slate-200"></div>
+                    <div>
+                        <label for="Primer Apellido"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Primer apellido</label>
+                        <input type="text" name="papellido" id="papellido"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="papellido" required="">
                     </div>
-                    
-                    <form class="w-full">
-                    <lavel for="" class= "font-medium">Datos Personales</lavel>
-                        <input name="email" type="email" autocomplete="email" required=""
-                        class="block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                        placeholder="Nombre Completo" value="">
-                        
-                        <input name="password" type="email" autocomplete="current-password" required=""
-                        class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                        placeholder="Primer Apellido" value="">
-                        
-                        <input name="password" type="email" autocomplete="current-password" required=""
-                        class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                        placeholder="Segundo Apellido" value="">
-
-                        <input name="password" type="email" autocomplete="current-password" required=""
-                        class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                        placeholder="Titulo De Cortesia" value="">
-
-                        <select id="countries" class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1">
-                        <option selected>Selecciona Genero</option>
-                        <option value="">Hombre</option>
-                        <option value="">Mujer</option>
-                        <option value="">Otro</option>
-                       
-                        </select>
-                        
-                        <input name="password" type="date" autocomplete="current-password" required=""
-                        class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                        placeholder="" value="">
-                        
-                        <select id="countries" class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1">
-                        <option selected>Selecciona Tipo de Sangre</option>
-                        <option value="">AB+</option>
-                        <option value="">AB-</option>
-                        <option value="">O+</option>
-                        <option value="">0-</option>
-                        </select>
-
-
-                        <lavel for="" class= "font-medium">Fotografia</lavel>
-                        <br>
-                        <input name="password" type="file" autocomplete="current-password" required=""
-                        class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                        placeholder="Fotografia" value="">
-                        <lavel for="" class= "font-medium">Datos De Acceso</lavel>
-                        <input name="password" type="email" autocomplete="current-password" required=""
-                        class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                        placeholder="Correo" value="">
-                        
-                        <input name="password" type="password" autocomplete="current-password" required=""
-                        class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                        placeholder="Contraseña" value="">
-
-                        <input name="password" type="password" autocomplete="current-password" required=""
-                        class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                        placeholder="Confirmar Contraseña" value="">
-                        <br>
-                        <br>   
-
-                        </form>
-                       <a href="/dashboard">
-                        <button type="submit"
-                                class="inline-flex w-full items-center justify-center rounded-lg bg-black p-2 py-3 text-sm font-medium text-white outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400">
-                            Registrar
-                        </button>
-                        </a>
+                    <div>
+                        <label for="Segundo Apellido"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Segundo apellido</label>
+                        <input type="text" name="sapellido" id="sapellido"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="sapellido">
+                    </div>
+                    <div>
+                        <label for="titulo"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titulo de cortesía</label>
+                        <input type="text" name="titulo" id="titulo"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Mr." required="">
+                    </div>
+                    <div>
+                        <label for="fechan"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de nacimiento</label>
+                        <input type="date" name="fechan" id="fechan"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="foto"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Foto</label>
+                        <input type="file" name="titulo" id="titulo"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Mr." required="">
+                    </div>
+                    <div>
+                        <label for="genero" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selecciona el genero</label>
+                        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option>Selecciona genero</option>
+                            <option>Hombre</option>
+                            <option>Mujer</option>
+                            <option>Otro</option>
+                      </select>
+                    </div>
+                    <div>
+                        <label for="sangre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selecciona tipo de sangre</label>
+                        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option>Selecciona tipo de sangre</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+                      </select>
+                    </div>
+                    <br>
                 </div>
-                <div class="mt-6 text-center text-sm text-slate-600">
+                <hr></hr>
+                <h1 class="text-2xl xl:text-2xl font-extrabold">Datos de acceso</h1>
+                <br>
+                <div class="grid gap-12 mb-12 sm:grid-cols-3">
+                    <div>
+                        <label for="usuario"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Usuario</label>
+                        <input type="text" name="usuario" id="usuario"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Username" required="">
+                    </div>
+                    <div>
+                        <label for="password"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                        <input type="password" name="password" id="password"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="•••••••••" required="">
+                    </div>
+                    <div>
+                        <label for="confirm-password"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm
+                            password</label>
+                        <input type="password" name="confirm-password" id="confirm-password"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="•••••••••" required="">
+                    </div>
                 </div>
-            </div>
-            </div>
+                <button type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Registrar
+                </button>
+                <RouterLink to="/">
+                <button type="submit"
+                    class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                    Cancelar
+                </button>
+            </RouterLink>
+            </form>
         </div>
     </div>
-</div>
 </template>
