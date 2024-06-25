@@ -7,24 +7,24 @@ persona = APIRouter()
 personas=[]
 
 class model_personas(BaseModel):
-    id:int
+    id:str
     nombre:str
     primer_apellido:str
     segundo_apellido:Optional[str]
-    edad:int
+    titulo:str
     fecha_nacimiento: datetime
-    curp: str
+    genero: str
     tipo_sangre: str
     created_at: datetime = datetime.now()
     estatus: bool = False
 
 # Obtener todas las personas
-@persona.get('/personas')
+@persona.get('/personas', tags=["Personas"])
 def getPersonas():
     return personas
 
 # Obtener una persona por su ID
-@persona.get('/personas/{persona_id}')
+@persona.get('/personas/{persona_id}', tags=["Personas"])
 def getPersona(persona_id: int):
     for persona in personas:
         if persona['id'] == persona_id:
@@ -32,13 +32,13 @@ def getPersona(persona_id: int):
     raise HTTPException(status_code=404, detail="Persona no encontrada")
 
 # Guardar una nueva persona
-@persona.post('/personas')
+@persona.post('/personas', tags=["Personas"])
 def save_persona(datos_persona: model_personas):
     personas.append(datos_persona.dict())
     return "Datos guardados correctamente"
 
 # Actualizar datos de una persona por su ID
-@persona.put('/personas/{persona_id}')
+@persona.put('/personas/{persona_id}', tags=["Personas"])
 def updatePersona(persona_id: int, datos_persona: model_personas):
     for index, persona in enumerate(personas):
         if persona['id'] == persona_id:
@@ -47,7 +47,7 @@ def updatePersona(persona_id: int, datos_persona: model_personas):
     raise HTTPException(status_code=404, detail="Persona no encontrada")
 
 # Eliminar una persona por su ID
-@persona.delete('/personas/{persona_id}')
+@persona.delete('/personas/{persona_id}', tags=["Personas"])
 def deletePersona(persona_id: int):
     for index, persona in enumerate(personas):
         if persona['id'] == persona_id:
@@ -56,7 +56,7 @@ def deletePersona(persona_id: int):
     raise HTTPException(status_code=404, detail="Persona no encontrada")
 
 # Buscar personas por criterios específicos, incluyendo por ID
-@persona.get('/buscar-personas')
+@persona.get('/buscar-personas', tags=["Personas"])
 def buscar_personas(id: Optional[int] = None,
                     nombre: Optional[str] = None,
                     primer_apellido: Optional[str] = None,
