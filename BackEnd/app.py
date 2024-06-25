@@ -5,4 +5,6 @@ from routes.persona import persona
 app = FastAPI()
 app.include_router(user)
 app.include_router(persona)
+
+
 print("Hola bienvenido a mi backend")
