@@ -1,53 +1,31 @@
-from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel, Field
-from datetime import datetime
+from fastapi import APIRouter, Depends
+from config.db import SessionLocal, engine
+import schemas, models
+from sqlalchemy.orm import Session
+from routes.user import user
+from cruds import crud
+from sqlalchemy.orm import sessiomaker
+
 
 user = APIRouter()
-users = []
 
-# @userModel
-class ModelsUsers(BaseModel):
-    id: str
-    usuarios: str
-    contrasena: str
-    created_at: datetime = Field(default_factory=datetime.now)
-    estatus: bool = False
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
 @user.get('/')
 def bienvenido():
     return 'Bienvenido al sistema de APIs'
 
-@user.get('/users', tags=["Usuarios"])
-def get_usuarios():
+@user.get('/users',response_model=list[schemas.User], tags=["Usuarios"])
+def get_usuarios(skip: int = 0 , limit: int = 10, db: Session = Depends(get_db)):
+    users = crud.get_users(db, skip=skip, limit=limit)
     return users
 
-@user.post('/users', tags=["Usuarios"])
-def save_users(insert_users: ModelsUsers):
-    users.append(insert_users.dict())
-    return 'Datos guardados'
 
-# Obtener un usuario por su ID
-@user.get('/users/{usuario_id}', tags=["Usuarios"])
-def get_usuario(usuario_id: str):
-    for usuario in users:
-        if usuario['id'] == usuario_id:
-            return usuario
-    raise HTTPException(status_code=404, detail="Usuario no encontrado")
 
-# Actualizar datos de un usuario por su ID
-@user.put('/users/{usuario_id}', tags=["Usuarios"])
-def update_usuario(usuario_id: str, usuario: ModelsUsers):
-    for index, user in enumerate(users):
-        if user['id'] == usuario_id:
-            users[index] = usuario.dict()
-            return "Usuario actualizado correctamente"
-    raise HTTPException(status_code=404, detail="Usuario no encontrado")
 
-# Eliminar un usuario por su ID
-@user.delete('/users/{usuario_id}', tags=["Usuarios"])
-def delete_usuario(usuario_id: str):
-    for index, user in enumerate(users):
-        if user['id'] == usuario_id:
-            del users[index]
-            return "Usuario eliminado correctamente"
-    raise HTTPException(status_code=404, detail="Usuario no encontrado")
+
