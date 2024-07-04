@@ -3,18 +3,21 @@ from sqlalchemy.dialects.mysql import LONGTEXT
 from sqlalchemy.orm import relationship
 from config.db import Base
 
-class User(Base):
-    __tablename__ = "person"
+class Person(Base):
+    __tablename__ = "persons"
 
     id = Column(Integer, primary_key=True, index=True)
-    nombre = Column(String(255))
-    primer_apellido = Column(String(255))
-    segundo_apellido = Column(String(255))
-    direccion = Column(String(255))
-    telefono = Column(String(255))
-    correo = Column(String(255))
-    sangre = Column(String(255))
-    fecha_nacimiento = Column(DateTime)
-    created_at = Column(DateTime)
-    estatus = Column(Boolean, default=False)
+    Titulo_Cortesia = Column(String(255))
 
+    Nombre = Column(String(255))
+
+    Primer_Apellido = Column(String(255))
+    Segundo_Apellido = Column(String(255))
+
+    Fecha_Nacimiento = Column(DateTime)
+    Fotografia = Column(LONGTEXT)
+    Genero = Column(String(255))
+    Tipo_Sangre = Column(String(255))
+    Estatus = Column(Boolean, default=False)
+    Fecha_Registro = Column(DateTime)
+    Fecha_Actualizacion = Column(DateTime)
