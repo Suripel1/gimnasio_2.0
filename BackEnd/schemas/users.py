@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Union, optional
 from pydantic import BaseModel
 from datetime import datetime
 
@@ -25,7 +25,7 @@ class User(UserBase):
         orm_mode = True
         
 class UserLogin(BaseModel):
-    Nombre_Usuario: str
-    Correo_electronico: str
+    Nombre_Usuario: optional[str] = None
+    Correo_electronico: optional[str] = None
     Contrasena: str
-    Numero_Telefonico_Movil: str
+    Numero_Telefonico_Movil: optional[str] = None

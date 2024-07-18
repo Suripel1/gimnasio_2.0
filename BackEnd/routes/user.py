@@ -59,3 +59,6 @@ def delete_user(id:int, db: Session=Depends(get_db)):
     if db_users is None:
         raise HTTPException(status_code=404, detail="Usuario no existe, no se pudo eliminar ")
     return db_users
+
+@user.post("/login/", response_model=schemas.users.UserLogin, tags=["User Login"])
+def read_credentials(usuario:schemas.users.UserLogin, db: Session = Depends(get_db)):
