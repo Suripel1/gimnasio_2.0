@@ -1,30 +1,34 @@
-from typing import List, Union
-from pydantic  import BaseModel
-from datetime import datetime, date
+from typing import List,Union
+from pydantic import BaseModel
+from datetime import datetime
+
+from models.persons import MyGenero, MySangre
 
 class PersonBase(BaseModel):
+    
     Titulo_Cortesia:str
-    Nombre:str
-    Primer_Apellido:str
-    Segundo_Apellido:str
-    Fecha_Nacimiento:datetime
+    Nombre: str
+    Primer_Apellido: str
+    Segundo_Apellido: str
+    Genero: MyGenero
+    Tipo_Sangre:  MySangre  
+    Fecha_Nacimiento: datetime
     Fotografia:str
-    Genero:str
-    Tipo_Sangre:str
-    Estatus: bool
+    Telefono: str
+    Correo_Electronico: str
+    Estatus:bool
     Fecha_Registro:datetime
     Fecha_Actualizacion:datetime
-    # Id_persona: int
 
+
+    
+    
 class PersonCreate(PersonBase):
     pass
-
 class PersonUpdate(PersonBase):
     pass
-
 class Person(PersonBase):
-    ID:int
-    # owner_id: int clave foranea
+    ID: int
+
     class Config:
         orm_mode = True
-        

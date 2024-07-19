@@ -1,12 +1,22 @@
 from fastapi import FastAPI
-from routes.user import user
-from routes.person import person
-from routes.rol import rol
+#from routes.persona import persona
+#from routes.usuario import usuario
+from routes.users import user
+from routes.persons import person
+from routes.roles import roles
 from routes.usersrols import userrol
 
-app = FastAPI()
+
+app= FastAPI()
+#app.include_router(persona)
+#app.include_router(usuario)
 app.include_router(user)
 app.include_router(person)
-app.include_router(rol)
+app.include_router(roles)
 app.include_router(userrol)
-print("Hola bienvenido a mi backend")
+
+
+
+
+
+print("Bienvenido a mi aplicacion")
