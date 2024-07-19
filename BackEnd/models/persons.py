@@ -26,6 +26,7 @@ class Person(Base):
     Nombre = Column(String(255))
     Primer_Apellido = Column(String(255))
     Segundo_Apellido = Column(String(255))
+    Curp = Column(String(18)) 
     Genero = Column(Enum(MyGenero))  
     Tipo_Sangre = Column(Enum(MySangre)) 
     Fecha_Nacimiento = Column(DateTime)
@@ -36,3 +37,4 @@ class Person(Base):
     Fecha_Registro = Column(DateTime)
     Fecha_Actualizacion = Column(DateTime)
 
+    

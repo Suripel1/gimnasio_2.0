@@ -10,6 +10,7 @@ class PersonBase(BaseModel):
     Nombre: str
     Primer_Apellido: str
     Segundo_Apellido: str
+    Curp: str
     Genero: MyGenero
     Tipo_Sangre:  MySangre  
     Fecha_Nacimiento: datetime
