@@ -27,10 +27,10 @@ def create_ejercicio(db: Session, ejercicio:schemas.ejercicios.EjercicioCreate):
     db.refresh(db_ejercicio)
     return db_ejercicio
 
-def update_ejercicio(db: Session, ID: int, person: schemas.ejercicios.EjercicioUpdate):
+def update_ejercicio(db: Session, ID: int, ejercicio: schemas.ejercicios.EjercicioUpdate):
     db_ejercicio = db.query(models.ejercicios.Ejercicio).filter(models.ejercicios.Ejercicio.ID == ID).first()
     if db_ejercicio:
-        for var, value in vars(Ejercicio).items():
+        for var, value in vars(ejercicio).items():
             setattr(db_ejercicio, var, value) if value else None
         db.commit()
         db.refresh(db_ejercicio)
