@@ -5,8 +5,13 @@ from sqlalchemy.orm import Session
 def get_ejercicio(db:Session, ID:int):
     return db.query(models.ejercicios.Ejercicio).filter(models.ejercicios.Ejercicio.ID == ID).first()
 
-def get_ejercicio_by_Nombre(db: Session, Nombre: str):
-    return db.query(models.ejercicios.Ejercicio).filter(models.ejercicios.Ejercicio == Nombre).first()
+def get_ejercicio_by_nombre(db: Session, nombre: str):
+    try:
+        return db.query(models.ejercicios.Ejercicio).filter(models.ejercicios.Ejercicio.Nombre == nombre).first()
+    except SQLAlchemyError as e:
+        db.rollback()
+        raise e
+
 
 def get_ejercicios(db: Session, skip:int=0,limit:int=10):
     return db.query(models.ejercicios.Ejercicio).offset(skip).limit(limit).all()
@@ -15,10 +20,11 @@ def create_ejercicio(db: Session, ejercicio:schemas.ejercicios.EjercicioCreate):
     db_ejercicio = models.ejercicios.Ejercicio(
                                                 Nombre=ejercicio.Nombre,
                                                 Descripcion=ejercicio.Descripcion,
-                                                video=ejercicio.Video,
+                                                Video=ejercicio.Video,
                                                 Tipo=ejercicio.Tipo,
                                                 Estatus=ejercicio.Estatus,
                                                 Dificultad=ejercicio.Dificultad,
+                                                Recomendaciones=ejercicio.Recomendaciones,
                                                 Restricciones=ejercicio.Restricciones, 
                                                 Fecha_Registro=ejercicio.Fecha_Registro,
                                                 Fecha_Actualizacion=ejercicio.Fecha_Actualizacion )
@@ -31,7 +37,7 @@ def update_ejercicio(db: Session, ID: int, ejercicio: schemas.ejercicios.Ejercic
     db_ejercicio = db.query(models.ejercicios.Ejercicio).filter(models.ejercicios.Ejercicio.ID == ID).first()
     if db_ejercicio:
         for var, value in vars(ejercicio).items():
-            setattr(db_ejercicio, var, value) if value else None
+            setattr(db_ejercicio, var, value) if value is not None else None
         db.commit()
         db.refresh(db_ejercicio)
     return db_ejercicio
