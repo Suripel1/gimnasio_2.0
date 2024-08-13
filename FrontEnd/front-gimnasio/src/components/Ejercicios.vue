@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <!-- Botón para mostrar el formulario -->
+      
         <div class="row mb-4">
             <div class="col text-center">
                 <button @click="mostrarFormulario = !mostrarFormulario" class="btn btn-danger">
@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        <!-- Formulario que se muestra u oculta basado en la variable mostrarFormulario -->
+        
         <div v-if="mostrarFormulario" class="row">
             <div class="col-md-6">
                 <form action="#">
