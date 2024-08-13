@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\PC-22\Documents\AMI\gimnasio-2.0\Backend\BackendGym
+set VIRTUAL_ENV=C:\Users\HP\Desktop\gimnasio_back\gimnasio_2.0\BackEnd\BackendGym
 
 if not defined PROMPT set PROMPT=$P$G
 

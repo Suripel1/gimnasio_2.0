@@ -1,127 +1,127 @@
 <template>
-    <div class="container text-center">
-  <div class="row">
-    <div class="col">
-        <div class="container text-center">
-        <div class="row">
-            <div class="col">
-            Column
+    <div class="container">
+        <!-- Botón para mostrar el formulario -->
+        <div class="row mb-4">
+            <div class="col text-center">
+                <button @click="mostrarFormulario = !mostrarFormulario" class="btn btn-danger">
+                    {{ mostrarFormulario ? 'Ocultar' : 'Registrar' }} Ejercicio
+                </button>
             </div>
-            <div class="col">
+        </div>
+
+        <!-- Formulario que se muestra u oculta basado en la variable mostrarFormulario -->
+        <div v-if="mostrarFormulario" class="row">
+            <div class="col-md-6">
                 <form action="#">
-                            <div>
-                                <label for="Nombre"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Nombre</label>
-                                <input type="text" name="nombre" id="nombre"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="nombre" required="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="nombre" required>
                             </div>
-                            <div>
-                                <label for="Descripcion"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Descripcion</label>
-                                <input type="text" name="descripcion" id="descripcion"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="descripcion" required="">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="descripcion" class="form-label">Descripción</label>
+                                <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="descripción" required>
                             </div>
-                            <div>
-                                <label for="video"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Video</label>
-                                <input type="file" name="titulo" id="titulo"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Mr." required="">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="video" class="form-label">Video</label>
+                                <input type="file" name="video" id="video" class="form-control">
                             </div>
-                            <div>
-                                <label for="tipo"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">
-                                    Tipo</label>
-                                <select id="countries"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="tipo" class="form-label">Tipo</label>
+                                <select id="tipo" class="form-select" required>
                                     <option>Selecciona Tipo</option>
-                                    <option>Aerobico</option>
+                                    <option>Aeróbico</option>
                                     <option>Resistencia</option>
                                     <option>Flexibilidad</option>
                                     <option>Fuerza</option>
                                 </select>
                             </div>
-                            <div>
-                                <label for="estatus"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Estatus</label>
-                                <select id="countries"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="estatus" class="form-label">Estatus</label>
+                                <select id="estatus" class="form-select" required>
                                     <option>Selecciona estatus</option>
                                     <option>Activo</option>
                                     <option>Inactivo</option>
                                 </select>
                             </div>
-                            <div>
-                                <label for="dificultad"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Difucultad</label>
-                                <select id="countries"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="dificultad" class="form-label">Dificultad</label>
+                                <select id="dificultad" class="form-select" required>
                                     <option>Selecciona dificultad</option>
-                                    <option>Basico</option>
+                                    <option>Básico</option>
                                     <option>Intermedio</option>
                                     <option>Avanzado</option>
                                 </select>
                             </div>
-                            <div>
-                                <label for="fechar"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Fecha de
-                                    registro</label>
-                                <input type="date" name="fechar" id="fechar"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label for="fechaa"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Fecha de
-                                    actualizacion</label>
-                                <input type="date" name="fechaa" id="fechaa"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-
-                            <div>
-                                <label for="recomendaciones"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Recomendaciones</label>
-                                <input type="text" name="recomendaciones" id="recomendaciones"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="recomendaciones" required="">
-                            </div>
-                            <div>
-                                <label for="restricciones"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Restricciones</label>
-                                <input type="text" name="restricciones" id="restricciones"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="restricciones" required="">
-                            </div>
-                        <div class="w-full flex justify-end mb-4">
-                            <button type="submit"
-                                class="text-gray-900 bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Registrar
-                            </button>
                         </div>
-                    </form>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="fechar" class="form-label">Fecha de registro</label>
+                                <input type="date" name="fechar" id="fechar" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="fechaa" class="form-label">Fecha de actualización</label>
+                                <input type="date" name="fechaa" id="fechaa" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="recomendaciones" class="form-label">Recomendaciones</label>
+                                <input type="text" name="recomendaciones" id="recomendaciones" class="form-control" placeholder="recomendaciones" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="restricciones" class="form-label">Restricciones</label>
+                                <input type="text" name="restricciones" id="restricciones" class="form-control" placeholder="restricciones" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-danger">
+                            Registrar
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="col">
-            Column
+            <div class="col-md-6">
+                <!-- Esta columna se dejó vacía para que el formulario ocupe solo la mitad de la pantalla -->
             </div>
-        </div>
         </div>
 
+        <!-- Nueva fila para que ListarEjercicios ocupe toda la pantalla -->
+        <div class="row mt-4">
+            <div class="col">
+                <ListarEjercicios />
+            </div>
+        </div>
     </div>
-    </div>
-    <div class="row">
-    <div class="col">
-        <ListarEjercicios />
-    </div>
-  </div>
-</div>
-    
 </template>
+
 <script>
-import ListarEjercicios from './ListarEjercicios.vue'
+import ListarEjercicios from './ListarEjercicios.vue';
+
 export default {
     components: {
-        ListarEjercicios
-    }
-}
+        ListarEjercicios,
+    },
+    data() {
+        return {
+            mostrarFormulario: false,  // Estado que controla la visibilidad del formulario
+        };
+    },
+};
 </script>
